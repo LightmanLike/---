@@ -30,7 +30,6 @@ public class MainActivity extends BaseActivity implements EasyPermissions.Permis
      */
     public static final int REQUEST_IMAGE = 112;
 
-    public Button button1 = null;
     public Button button2 = null;
     public Button button3 = null;
     public Button button4 = null;
@@ -51,7 +50,6 @@ public class MainActivity extends BaseActivity implements EasyPermissions.Permis
      * 初始化组件
      */
     private void initView() {
-        button1 = (Button) findViewById(R.id.button1);
         button2 = (Button) findViewById(R.id.button2);
         button3 = (Button) findViewById(R.id.button3);
         button4 = (Button) findViewById(R.id.button4);
@@ -64,7 +62,6 @@ public class MainActivity extends BaseActivity implements EasyPermissions.Permis
          *
          * 测试生成二维码图片
          */
-        button1.setOnClickListener(new ButtonOnClickListener(button1.getId()));
         button2.setOnClickListener(new ButtonOnClickListener(button2.getId()));
         button3.setOnClickListener(new ButtonOnClickListener(button3.getId()));
         button4.setOnClickListener(new ButtonOnClickListener(button4.getId()));
@@ -194,9 +191,6 @@ public class MainActivity extends BaseActivity implements EasyPermissions.Permis
                 intent.addCategory(Intent.CATEGORY_OPENABLE);
                 intent.setType("image/*");
                 startActivityForResult(intent, REQUEST_IMAGE);
-            } else if (v.getId() == R.id.button4) {
-                Intent intent = new Intent(MainActivity.this, ThreeActivity.class);
-                startActivity(intent);
             } else {
                 cameraTask(buttonId);
             }
@@ -210,12 +204,8 @@ public class MainActivity extends BaseActivity implements EasyPermissions.Permis
      */
     private void onClick(int buttonId) {
         switch (buttonId) {
-            case R.id.button1:
-                Intent intent = new Intent(getApplication(), CaptureActivity.class);
-                startActivityForResult(intent, REQUEST_CODE);
-                break;
             case R.id.button3:
-                intent = new Intent(MainActivity.this, SecondActivity.class);
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                 startActivityForResult(intent, REQUEST_CODE);
                 break;
             default:
